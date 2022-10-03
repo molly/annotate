@@ -1,17 +1,20 @@
 :root {
   -webkit-text-size-adjust: 100%;
+  --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --border-color: hsl(0, 0%, 87%);
 }
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: #000;
-  font-size: 1.1em;
+  color: hsl(0, 0%, 0%);
+  font-size: 1.1rem;
   line-height: 1.5;
   margin: 0;
 }
 
 h2, h3, h4, h5 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
+  font-family: var(--sans-serif);
   margin: 0;
 }
 
@@ -28,38 +31,52 @@ a:hover {
   text-decoration: none;
 }
 
+.sr-only {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
 .title-block {
-  margin: 10px;
+  margin: .625rem;
   text-align: center;
 }
 
 .title-image {
-  max-width: 320px;
+  max-width: 20rem;
   margin: 0 auto;
 }
 
 .byline {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
+  font-family: var(--sans-serif);
   font-size: 80%;
-  max-width: 500px;
+  max-width: 32rem;
   margin: 0 auto;
 }
 
 .byline:not(:first-child) {
-  margin-top: 15px;
+  margin-top: 1rem;
 }
 
 .intro, .outro {
-  max-width: 800px;
-  padding: 0 10px;
+  max-width: 50rem;
+  padding: 0 1rem;
 }
 
 .intro {
-  margin: 0 auto 30px auto;
+  margin: 0 auto 2rem auto;
 }
 
 .outro {
-  margin: 20px auto 50px auto;
+  margin: 1.4rem auto 3rem auto;
 }
 
 .group {
@@ -68,15 +85,15 @@ a:hover {
 }
 
 .group.first {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--border-color);
 }
 
 .group.first .left .content, .group.first .right .content {
-  padding-top: 20px;
+  padding-top: 1.25rem;
 }
 
 .group.last {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .group .left {
@@ -94,7 +111,7 @@ a:hover {
 .group .left .content, .group .right .content {
   background-color: inherit;
   box-shadow: none;
-  padding: 0 20px 26.4px 20px;
+  padding: 0 1.25rem 1.65rem 1.25rem;
 }
 
 .group .left .content.empty, .group .right .content.empty {
@@ -102,7 +119,7 @@ a:hover {
 }
 
 .group .right {
-  background-color: #f0f0f0;
+  background-color: hsl(0, 0%, 94%);
 }
 
 .group .right .content {
@@ -110,8 +127,9 @@ a:hover {
 }
 
 .content h3, .content h4 {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0 0 20px 0;
+  font-family: sans-serif;
+  font-family: var(--sans-serif);
+  margin: 0 0 1.25rem 0;
 }
 
 .content p {
@@ -126,20 +144,20 @@ a:hover {
 
 .content ul, .content ol {
   margin: 0;
-  padding-inline-start: 1em;
+  padding-inline-start: 1rem;
 }
 
 mark {
-  background-color: rgba(255, 245, 137, 0.5);
+  background-color: hsla(55, 100%, 77%, 0.5);
 }
 
 mark:hover {
   cursor: pointer;
-  background-color: #fff589;
+  background-color: hsla(55, 100%, 77%, 1);
 }
 
 mark.selected {
-  background-color: #fff589;
+  background-color: hsla(55, 100%, 77%, 1);
 }
 
 mark[data-annotation-id]::after {
@@ -148,11 +166,11 @@ mark[data-annotation-id]::after {
   display: inline-block;
   position: relative;
   border-radius: 50%;
-  border: 1px solid #000;
-  width: 10px;
-  height: 10px;
-  font-size: 10px;
-  line-height: 10px;
+  border: 1px solid hsl(0, 0%, 0%);
+  width: .625rem;
+  height: .625rem;
+  font-size: .625rem;
+  line-height: .625rem;
   padding: 1px;
   text-align: center;
   margin-left: 3px;
@@ -161,20 +179,21 @@ mark[data-annotation-id]::after {
 }
 
 .content > .annotation:not(:first-child), .content .content:not(:first-child), .content .annotation-group:not(:first-child) {
-  margin-top: 10px;
+  margin-top: .625rem;
 }
 
 .annotation {
-  background-color: white;
-  padding: 10px;
-  border: 1px solid #ddd;
+  background-color: hsl(0, 0%, 100%);
+  padding: .625rem;
+  border: 1px solid #var(var(--border-color));
 }
 
 .annotation:hover {
   cursor: pointer;
 }
 
-.annotation[role=comment][data-annotation-id]::after, .annotation-group[role=comment][data-annotation-id]::after {
+.annotation[role=comment][data-annotation-id]::after, 
+.annotation-group[role=comment][data-annotation-id]::after {
   content: attr(data-annotation-id);
   content: attr(data-annotation-id)/"";
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -183,17 +202,18 @@ mark[data-annotation-id]::after {
   position: absolute;
   border-radius: 50%;
   border: 1px solid #ddd;
-  width: 14px;
-  height: 14px;
-  font-size: 14px;
-  line-height: 12px;
+  width: .875rem;
+  height: .875rem;
+  font-size: .875rem;
+  line-height: 1;
   padding: 3px;
   text-align: center;
   left: -8px;
   top: -8px;
 }
 
-.annotation[role=comment], .annotation-group[role=comment] {
+.annotation[role=comment], 
+.annotation-group[role=comment] {
   position: relative;
 }
 
@@ -208,13 +228,14 @@ mark[data-annotation-id]::after {
 }
 
 .commenter {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
+  font-family: var(--sans-serif);
   font-size: 80%;
   color: #999;
 }
 
 .no-margin {
-  margin: 0 !important;
+  margin: 0;
 }
 
 .small {
@@ -226,81 +247,70 @@ mark[data-annotation-id]::after {
 }
 
 .annotation-group .annotation.thread {
-  margin-left: 10px;
+  margin-left: .625rem;
 }
 
 .annotation-group .annotation.thread-2 {
-  margin-left: 20px;
+  margin-left: 1.25rem;
 }
 
 .annotation-group .annotation.thread-3 {
-  margin-left: 30px;
+  margin-left: 1.5rem;
 }
 
 .annotation-group .annotation.thread-4 {
-  margin-left: 40px;
+  margin-left: 1.75rem;
 }
 
 .annotation-group .annotation.thread-5 {
-  margin-left: 50px;
+  margin-left: 2rem;
 }
 
 .annotation-group .annotation.thread-6 {
-  margin-left: 60px;
+  margin-left: 2.25rem;
 }
 
 .annotation-group .annotation.thread-7 {
-  margin-left: 70px;
+  margin-left: 2.5rem;
 }
 
 .annotation-group .annotation.thread-8 {
-  margin-left: 80px;
+  margin-left: 2.75rem;
 }
 
 .annotation-group .annotation.thread-9 {
-  margin-left: 90px;
+  margin-left: 3rem;
 }
 
 .annotation-group .annotation.thread-10 {
-  margin-left: 100px;
+  margin-left: 3.25rem;
 }
 
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
-}
+
 
 /* Responsive */
 @media screen and (min-width: 1801px) {
   .group .left .content {
     padding-left: 20%;
-    padding-right: 40px;
+    padding-right: 2.5rem;
   }
 
   .group .right .content {
-    padding-left: 40px;
+    padding-left: 2.5rem;
     padding-right: 20%;
   }
 }
 
 @media screen and (min-width: 1001px) and (max-width: 1800px) {
   .group .left .content, .group .right .content {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 }
 
 @media screen and (min-width: 751px) {
   .group .left .content, .group .right .content {
-    max-width: 800px;
+    max-width: 50rem;
   }
   .group .left .content {
     float: right;
@@ -311,36 +321,41 @@ mark[data-annotation-id]::after {
   .group {
     flex-direction: column;
   }
+
   .group .left .content, .group .right .content {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
+
   .group .left .content {
-    padding-top: 26.4px;
+    padding-top: 1.65rem;
   }
+
   .annotation {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
+    font-family: var(--sans-serif);
     font-size: 90%;
   }
+
   .content > .annotation, .annotation-group {
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 }
 
 @media screen and (max-width: 480px) {
   .group .left .content, .group .right .content {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
 
 /* No-JS tweaks */
 .no-jsmark:hover {
-  cursor: auto !important;
-  background-color: rgba(255, 245, 137, 0.5) !important;
+  cursor: auto;
+  background-color: hsla(55, 100%, 77%, 0.5);
 }
 
 .no-js.annotation:hover {
-  cursor: auto !important;
+  cursor: auto;
 }
 

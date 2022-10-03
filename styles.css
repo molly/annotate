@@ -126,7 +126,8 @@ a:hover {
   font-size: 90%;
 }
 
-.content h3, .content h4 {
+.content h3, 
+.content h4 {
   font-family: sans-serif;
   font-family: var(--sans-serif);
   margin: 0 0 1.25rem 0;
@@ -142,7 +143,8 @@ a:hover {
   margin-block-end: 0;
 }
 
-.content ul, .content ol {
+.content ul, 
+.content ol {
   margin: 0;
   padding-inline-start: 1rem;
 }
@@ -185,7 +187,7 @@ mark[data-annotation-id]::after {
 .annotation {
   background-color: hsl(0, 0%, 100%);
   padding: .625rem;
-  border: 1px solid #var(var(--border-color));
+  border: 1px solid var(--border-color);
 }
 
 .annotation:hover {
@@ -197,11 +199,11 @@ mark[data-annotation-id]::after {
   content: attr(data-annotation-id);
   content: attr(data-annotation-id)/"";
   font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: #fff;
+  background-color: hsl(0, 0%, 100%);
   display: inline-block;
   position: absolute;
   border-radius: 50%;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   width: .875rem;
   height: .875rem;
   font-size: .875rem;
@@ -223,15 +225,15 @@ mark[data-annotation-id]::after {
 
 .annotation.selected,
 .annotation-group.selected .annotation {
-  border-color: #999;
-  background-color: #fffeef;
+  border-color: hsl(0, 0%, 60%);
+  background-color: hsl(56, 100%, 97%);
 }
 
 .commenter {
   font-family: sans-serif;
   font-family: var(--sans-serif);
   font-size: 80%;
-  color: #999;
+  color: hsl(0, 0%, 60%);
 }
 
 .no-margin {
@@ -312,6 +314,7 @@ mark[data-annotation-id]::after {
   .group .left .content, .group .right .content {
     max-width: 50rem;
   }
+
   .group .left .content {
     float: right;
   }

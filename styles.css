@@ -180,7 +180,9 @@ mark[data-annotation-id]::after {
   bottom: 2px;
 }
 
-.content > .annotation:not(:first-child), .content .content:not(:first-child), .content .annotation-group:not(:first-child) {
+.content > .annotation:not(:first-child), 
+.content .content:not(:first-child), 
+.content .annotation-group:not(:first-child) {
   margin-top: .625rem;
 }
 

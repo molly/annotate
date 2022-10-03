@@ -1,0 +1,287 @@
+.review {
+  -webkit-text-size-adjust: 100%;
+}
+.review body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #000;
+  font-size: 1.1em;
+  line-height: 1.5;
+  margin: 0;
+}
+.review h2, .review h3, .review h4, .review h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+.review h3 {
+  text-transform: uppercase;
+}
+.review a:hover {
+  background-color: transparent;
+  text-decoration: none;
+}
+.review .title-block {
+  margin: 10px;
+  text-align: center;
+}
+.review .title-block .title-image {
+  max-width: 320px;
+  margin: 0 auto;
+}
+.review .title-block .title-image img {
+  max-width: 100%;
+}
+.review .byline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.review .byline:not(:first-child) {
+  margin-top: 15px;
+}
+.review .intro, .review .outro {
+  max-width: 800px;
+  padding: 0 10px;
+}
+.review .intro {
+  margin: 0 auto 30px auto;
+}
+.review .outro {
+  margin: 20px auto 50px auto;
+}
+.review .group {
+  display: flex;
+  width: 100%;
+}
+.review .group.first {
+  border-top: 1px solid #ddd;
+}
+.review .group.first .left .content, .review .group.first .right .content {
+  padding-top: 20px;
+}
+.review .group.last {
+  border-bottom: 1px solid #ddd;
+}
+.review .group .left {
+  flex: 2;
+}
+.review .group .right {
+  flex: 3;
+}
+.review .group .left, .review .group .right {
+  display: flex;
+}
+.review .group .left .content, .review .group .right .content {
+  background-color: inherit;
+  box-shadow: none;
+  padding: 0 20px 26.4px 20px;
+}
+.review .group .left .content.empty, .review .group .right .content.empty {
+  padding: 0;
+}
+.review .group .right {
+  background-color: #f0f0f0;
+}
+.review .group .right .content {
+  font-size: 90%;
+}
+.review .content h3, .review .content h4 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 20px 0;
+}
+.review .content p {
+  margin-top: 0;
+  margin-block-start: 0;
+}
+.review .content p:last-child {
+  margin-bottom: 0;
+  margin-block-end: 0;
+}
+.review .content ul, .review .content ol {
+  margin: 0;
+  padding-inline-start: 1em;
+}
+.review mark {
+  background-color: rgba(255, 245, 137, 0.5);
+}
+.review mark:hover {
+  cursor: pointer;
+  background-color: #fff589;
+}
+.review mark.selected {
+  background-color: #fff589;
+}
+.review mark[data-annotation-id]::after {
+  content: attr(data-annotation-id);
+  content: attr(data-annotation-id)/"";
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #000;
+  width: 10px;
+  height: 10px;
+  font-size: 10px;
+  line-height: 10px;
+  padding: 1px;
+  text-align: center;
+  margin-left: 3px;
+  margin-right: 2px;
+  bottom: 2px;
+}
+.review .content > .annotation:not(:first-child), .review .content .content:not(:first-child), .review .content .annotation-group:not(:first-child) {
+  margin-top: 10px;
+}
+.review .annotation {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.review .annotation:hover {
+  cursor: pointer;
+}
+.review .annotation[role=comment][data-annotation-id]::after, .review .annotation-group[role=comment][data-annotation-id]::after {
+  content: attr(data-annotation-id);
+  content: attr(data-annotation-id)/"";
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #fff;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  line-height: 12px;
+  padding: 3px;
+  text-align: center;
+  left: -8px;
+  top: -8px;
+}
+.review .annotation[role=comment], .review .annotation-group[role=comment] {
+  position: relative;
+}
+.review .annotation-group .annotation:not(:first-child) {
+  border-top-width: 0;
+}
+.review .annotation.selected,
+.review .annotation-group.selected .annotation {
+  border-color: #999;
+  background-color: #fffeef;
+}
+.review .commenter {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  color: #999;
+}
+.review .no-margin {
+  margin: 0 !important;
+}
+.review .small {
+  font-size: 80%;
+}
+.review .fine-print {
+  font-size: 70%;
+}
+.review .annotation-group .annotation.thread {
+  margin-left: 10px;
+}
+.review .annotation-group .annotation.thread-2 {
+  margin-left: 20px;
+}
+.review .annotation-group .annotation.thread-3 {
+  margin-left: 30px;
+}
+.review .annotation-group .annotation.thread-4 {
+  margin-left: 40px;
+}
+.review .annotation-group .annotation.thread-5 {
+  margin-left: 50px;
+}
+.review .annotation-group .annotation.thread-6 {
+  margin-left: 60px;
+}
+.review .annotation-group .annotation.thread-7 {
+  margin-left: 70px;
+}
+.review .annotation-group .annotation.thread-8 {
+  margin-left: 80px;
+}
+.review .annotation-group .annotation.thread-9 {
+  margin-left: 90px;
+}
+.review .annotation-group .annotation.thread-10 {
+  margin-left: 100px;
+}
+.review .sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+/* Responsive */
+@media screen and (min-width: 1801px) {
+  .review .group .left .content {
+    padding-left: 20%;
+    padding-right: 40px;
+  }
+  .review .group .right .content {
+    padding-left: 40px;
+    padding-right: 20%;
+  }
+}
+@media screen and (min-width: 1001px) and (max-width: 1800px) {
+  .review .group .left .content, .review .group .right .content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (min-width: 751px) {
+  .review .group .left .content, .review .group .right .content {
+    max-width: 800px;
+  }
+  .review .group .left .content {
+    float: right;
+  }
+}
+@media screen and (max-width: 750px) {
+  .review .group {
+    flex-direction: column;
+  }
+  .review .group .left .content, .review .group .right .content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .review .group .left .content {
+    padding-top: 26.4px;
+  }
+  .review .annotation {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+  }
+  .review .content > .annotation, .review .annotation-group {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .review .group .left .content, .review .group .right .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* No-JS tweaks */
+.no-js.review mark:hover {
+  cursor: auto !important;
+  background-color: rgba(255, 245, 137, 0.5) !important;
+}
+.no-js.review .annotation:hover {
+  cursor: auto !important;
+}
+

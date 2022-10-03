@@ -1,14 +1,14 @@
 function deselectAllExcept(selector) {
   const allSelected = document.querySelectorAll('.selected');
-  for (let i = 0; i < allSelected.length; i++) {
+  allSelected.forEach( currentSelected => {
     if (
-      allSelected[i].id !== selector &&
-      allSelected[i].getAttribute('aria-details') !== selector
+      currentSelected.id !== selector &&
+      currentSelected.getAttribute('aria-details') !== selector
     ) {
-      allSelected[i].classList.remove('selected');
+      currentSelected.classList.remove('selected');
     }
   }
-}
+)}
 
 function makeClickHandler(isHighlight) {
   return function onClick(event) {
@@ -57,9 +57,8 @@ function makeClickHandler(isHighlight) {
 
 function deselectAll() {
   const selectedComments = document.querySelectorAll('.selected');
-  for (let i = 0; i < selectedComments.length; i++) {
-    selectedComments[i].classList.remove('selected');
-  }
+  selectedComments.forEach(selectedComment => selectedComments[i].classList.remove('selected'))
+  
 }
 
 function onInitialLoad() {
@@ -69,10 +68,10 @@ function onInitialLoad() {
   );
 
   const highlights = document.querySelectorAll('mark');
-  highlights.map(highlight => (highlight.addEventListener('click', makeClickHandler(true))));
+  highlights.forEach(highlight => (highlight.addEventListener('click', makeClickHandler(true))));
 
   const comments = document.querySelectorAll('.annotation');
-  comments.map(comment => comment.addEventListener('click', makeClickHandler(false)))
+  comments.forEach(comment => comment.addEventListener('click', makeClickHandler(false)))
   document.addEventListener('click', deselectAll);
 }
 
@@ -82,4 +81,4 @@ function onInitialLoad() {
   } else {
     document.addEventListener('DOMContentLoaded', onInitialLoad);
   }
-})();
+})()

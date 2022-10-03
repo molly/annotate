@@ -1,6 +1,6 @@
 function deselectAllExcept(selector) {
-  var allSelected = document.getElementsByClassName('selected');
-  for (var i = 0; i < allSelected.length; i++) {
+  const allSelected = document.querySelectorAll('.selected');
+  for (let i = 0; i < allSelected.length; i++) {
     if (
       allSelected[i].id !== selector &&
       allSelected[i].getAttribute('aria-details') !== selector
@@ -12,7 +12,7 @@ function deselectAllExcept(selector) {
 
 function makeClickHandler(isHighlight) {
   return function onClick(event) {
-    var targetElement, selector, corresponding;
+    let targetElement, selector, corresponding;
     if (isHighlight) {
       selector = event.target.getAttribute('aria-details');
       targetElement = event.target;
@@ -22,14 +22,14 @@ function makeClickHandler(isHighlight) {
         targetElement = event.target;
       } else {
         // Depending on where they click, they may have targeted a child element
-        var annotation = event.target.closest('[role="comment"]');
+        const annotation = event.target.closest('[role="comment"]');
         targetElement = annotation;
         selector = annotation.id;
       }
     }
 
     if (isHighlight) {
-      corresponding = document.getElementById(selector);
+      corresponding = document.querySelector(`#${selector}`);
     } else {
       corresponding = document.querySelector(`[aria-details="${selector}"]`);
     }
@@ -39,8 +39,8 @@ function makeClickHandler(isHighlight) {
     const isSelected = targetElement.classList.toggle('selected');
     corresponding.classList.toggle('selected');
     if (isSelected) {
-      var prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-      var prefersReducedMotion = !prefersReducedMotionQuery || prefersReducedMotionQuery.matches;
+      const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const prefersReducedMotion = !prefersReducedMotionQuery || prefersReducedMotionQuery.matches;
       corresponding.scrollIntoView({
         behavior: prefersReducedMotion ? 'auto' : 'smooth',
         block: 'nearest',
@@ -56,24 +56,24 @@ function makeClickHandler(isHighlight) {
 }
 
 function deselectAll() {
-  var selectedComments = document.querySelectorAll('.selected');
-  for (var i = 0; i < selectedComments.length; i++) {
+  const selectedComments = document.querySelectorAll('.selected');
+  for (let i = 0; i < selectedComments.length; i++) {
     selectedComments[i].classList.remove('selected');
   }
 }
 
 function onInitialLoad() {
   document.documentElement.className = document.documentElement.className.replace(
-    /\bno-js\b/,
-    'js',
+    `no-js`,
+    `js`,
   );
 
-  var highlights = document.getElementsByTagName('mark');
-  for (var i = 0; i < highlights.length; i++) {
+  const highlights = document.querySelectorAll('mark');
+  for (let i = 0; i < highlights.length; i++) {
     highlights[i].addEventListener('click', makeClickHandler(true));
   }
-  var comments = document.getElementsByClassName('annotation');
-  for (var j = 0; j < comments.length; j++) {
+  const comments = document.querySelectorAll('.annotation');
+  for (let j = 0; j < comments.length; j++) {
     comments[j].addEventListener('click', makeClickHandler(false));
   }
 

@@ -1,6 +1,6 @@
 # Annotate
 
-This is some basic HTML/CSS/JavaScript that can be used to publish annotated copies of text, such as ["The (Edited) Latecomer's Guide to Crypto"](https://www.mollywhite.net/annotations/latecomers-guide-to-crypto) for which it was created.
+Annotate and publish text on the web! This project was created for ["The (Edited) Latecomer's Guide to Crypto"](https://www.mollywhite.net/annotations/latecomers-guide-to-crypto), but can be used to annotate any text document.
 
 ![](./screenshots/latecomers-desktop.png)
 

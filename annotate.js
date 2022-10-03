@@ -69,14 +69,10 @@ function onInitialLoad() {
   );
 
   const highlights = document.querySelectorAll('mark');
-  for (let i = 0; i < highlights.length; i++) {
-    highlights[i].addEventListener('click', makeClickHandler(true));
-  }
-  const comments = document.querySelectorAll('.annotation');
-  for (let j = 0; j < comments.length; j++) {
-    comments[j].addEventListener('click', makeClickHandler(false));
-  }
+  highlights.map(highlight => (highlight.addEventListener('click', makeClickHandler(true))));
 
+  const comments = document.querySelectorAll('.annotation');
+  comments.map(comment => comment.addEventListener('click', makeClickHandler(false)))
   document.addEventListener('click', deselectAll);
 }
 

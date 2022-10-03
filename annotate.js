@@ -1,18 +1,24 @@
-function deselectAllExcept(selector) {
-  var allSelected = document.getElementsByClassName('selected');
-  for (var i = 0; i < allSelected.length; i++) {
+// Add .selected to only currently selected item.
+const deselectAllExcept = (selector) => {
+  const allSelected = document.querySelectorAll('.selected');
+  allSelected.forEach( currentSelected => {
     if (
-      allSelected[i].id !== selector &&
-      allSelected[i].getAttribute('aria-details') !== selector
+      currentSelected.id !== selector &&
+      currentSelected.getAttribute('aria-details') !== selector
     ) {
-      allSelected[i].classList.remove('selected');
+      currentSelected.classList.remove('selected');
     }
-  }
+  })
 }
 
-function makeClickHandler(isHighlight) {
-  return function onClick(event) {
-    var targetElement, selector, corresponding;
+/**
+ * Build out functionality to connect highlights and comments for navigation.
+ * @param {boolean} isHighlight - true: highlight, false: comment
+ * @returns Click handler on each highlight and comment
+ */
+const makeClickHandler = (isHighlight) => {
+  return (event) => {
+    let targetElement, selector, corresponding;
     if (isHighlight) {
       selector = event.target.getAttribute('aria-details');
       targetElement = event.target;
@@ -22,14 +28,14 @@ function makeClickHandler(isHighlight) {
         targetElement = event.target;
       } else {
         // Depending on where they click, they may have targeted a child element
-        var annotation = event.target.closest('[role="comment"]');
+        const annotation = event.target.closest('[role="comment"]');
         targetElement = annotation;
         selector = annotation.id;
       }
     }
 
     if (isHighlight) {
-      corresponding = document.getElementById(selector);
+      corresponding = document.querySelector(`#${selector}`);
     } else {
       corresponding = document.querySelector(`[aria-details="${selector}"]`);
     }
@@ -39,8 +45,8 @@ function makeClickHandler(isHighlight) {
     const isSelected = targetElement.classList.toggle('selected');
     corresponding.classList.toggle('selected');
     if (isSelected) {
-      var prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-      var prefersReducedMotion = !prefersReducedMotionQuery || prefersReducedMotionQuery.matches;
+      const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const prefersReducedMotion = !prefersReducedMotionQuery || prefersReducedMotionQuery.matches;
       corresponding.scrollIntoView({
         behavior: prefersReducedMotion ? 'auto' : 'smooth',
         block: 'nearest',
@@ -55,35 +61,40 @@ function makeClickHandler(isHighlight) {
   };
 }
 
-function deselectAll() {
-  var selectedComments = document.querySelectorAll('.selected');
-  for (var i = 0; i < selectedComments.length; i++) {
-    selectedComments[i].classList.remove('selected');
-  }
+// Remove .selected from all elements.
+const deselectAll = () => {
+  const selectedComments = document.querySelectorAll('.selected');
+  selectedComments.forEach(selectedComment => selectedComments[i].classList.remove('selected')) 
 }
 
-function onInitialLoad() {
+/**
+ * - Switch html element class to "js."
+ * - Listen for clicks on all highlights.
+ * - Listen for clicks on all comments.
+ * - Create deselect event on any click.
+ */
+const onInitialLoad = () => {
   document.documentElement.className = document.documentElement.className.replace(
-    /\bno-js\b/,
-    'js',
+    `no-js`,
+    `js`,
   );
 
-  var highlights = document.getElementsByTagName('mark');
-  for (var i = 0; i < highlights.length; i++) {
-    highlights[i].addEventListener('click', makeClickHandler(true));
-  }
-  var comments = document.getElementsByClassName('annotation');
-  for (var j = 0; j < comments.length; j++) {
-    comments[j].addEventListener('click', makeClickHandler(false));
-  }
+  const highlights = document.querySelectorAll('mark');
+  highlights.forEach(highlight => (highlight.addEventListener('click', makeClickHandler(true))));
 
+  const comments = document.querySelectorAll('.annotation');
+  comments.forEach(comment => comment.addEventListener('click', makeClickHandler(false)))
+  
   document.addEventListener('click', deselectAll);
 }
 
-(function () {
+// Run it only when the doc is ready.
+const bootup = () => {
   if (document.readyState != 'loading') {
     onInitialLoad();
   } else {
     document.addEventListener('DOMContentLoaded', onInitialLoad);
   }
-})();
+}
+
+bootup()

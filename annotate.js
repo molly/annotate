@@ -7,8 +7,8 @@ function deselectAllExcept(selector) {
     ) {
       currentSelected.classList.remove('selected');
     }
-  }
-)}
+  })
+}
 
 function makeClickHandler(isHighlight) {
   return function onClick(event) {
@@ -57,8 +57,7 @@ function makeClickHandler(isHighlight) {
 
 function deselectAll() {
   const selectedComments = document.querySelectorAll('.selected');
-  selectedComments.forEach(selectedComment => selectedComments[i].classList.remove('selected'))
-  
+  selectedComments.forEach(selectedComment => selectedComments[i].classList.remove('selected')) 
 }
 
 function onInitialLoad() {

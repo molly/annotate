@@ -1,4 +1,5 @@
-function deselectAllExcept(selector) {
+// Add .selected to only currently selected item.
+const deselectAllExcept = (selector) => {
   const allSelected = document.querySelectorAll('.selected');
   allSelected.forEach( currentSelected => {
     if (
@@ -10,8 +11,13 @@ function deselectAllExcept(selector) {
   })
 }
 
-function makeClickHandler(isHighlight) {
-  return function onClick(event) {
+/**
+ * Build out functionality to connect highlights and comments for navigation.
+ * @param {boolean} isHighlight - true: highlight, false: comment
+ * @returns Click handler on each highlight and comment
+ */
+const makeClickHandler = (isHighlight) => {
+  return (event) => {
     let targetElement, selector, corresponding;
     if (isHighlight) {
       selector = event.target.getAttribute('aria-details');
@@ -55,12 +61,19 @@ function makeClickHandler(isHighlight) {
   };
 }
 
-function deselectAll() {
+// Remove .selected from all elements.
+const deselectAll = () => {
   const selectedComments = document.querySelectorAll('.selected');
   selectedComments.forEach(selectedComment => selectedComments[i].classList.remove('selected')) 
 }
 
-function onInitialLoad() {
+/**
+ * - Switch html element class to "js."
+ * - Listen for clicks on all highlights.
+ * - Listen for clicks on all comments.
+ * - Create deselect event on any click.
+ */
+const onInitialLoad = () => {
   document.documentElement.className = document.documentElement.className.replace(
     `no-js`,
     `js`,
@@ -71,13 +84,17 @@ function onInitialLoad() {
 
   const comments = document.querySelectorAll('.annotation');
   comments.forEach(comment => comment.addEventListener('click', makeClickHandler(false)))
+  
   document.addEventListener('click', deselectAll);
 }
 
-(function () {
+// Run it only when the doc is ready.
+const bootup = () => {
   if (document.readyState != 'loading') {
     onInitialLoad();
   } else {
     document.addEventListener('DOMContentLoaded', onInitialLoad);
   }
-})()
+}
+
+bootup()

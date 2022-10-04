@@ -1,6 +1,7 @@
 :root {
   -webkit-text-size-adjust: 100%;
-  --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --border-color: hsl(0, 0%, 87%);
 }
 
@@ -12,7 +13,10 @@ body {
   margin: 0;
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
   font-family: sans-serif;
   font-family: var(--sans-serif);
   margin: 0;
@@ -45,7 +49,7 @@ a:hover {
 }
 
 .title-block {
-  margin: .625rem;
+  margin: 0.625rem;
   text-align: center;
 }
 
@@ -66,7 +70,8 @@ a:hover {
   margin-top: 1rem;
 }
 
-.intro, .outro {
+.intro,
+.outro {
   max-width: 50rem;
   padding: 0 1rem;
 }
@@ -79,46 +84,58 @@ a:hover {
   margin: 1.4rem auto 3rem auto;
 }
 
+.maincontent {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Trickery to create the white/grey background */
+.maincontent::before {
+  content: "";
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.maincontent::after {
+  content: "";
+  grid-row: 1;
+  grid-column: 2;
+  background-color: hsl(0, 0%, 94%);
+}
+/* END trickery */
+
+.article {
+  grid-row: 1;
+  grid-column: 1/3;
+}
+
 .group {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.group.first {
-  border-top: 1px solid var(--border-color);
-}
-
-.group.first .left .content, .group.first .right .content {
-  padding-top: 1.25rem;
-}
-
-.group.last {
-  border-bottom: 1px solid var(--border-color);
-}
-
-.group .left {
-  flex: 2;
-}
-
+.group .left,
 .group .right {
-  flex: 3;
-}
-
-.group .left, .group .right {
   display: flex;
 }
 
-.group .left .content, .group .right .content {
+.group .left .content,
+.group .right .content {
   background-color: inherit;
   box-shadow: none;
   padding: 0 1.25rem 1.65rem 1.25rem;
 }
 
-.group .left .content.empty, .group .right .content.empty {
+.group .left .content.empty,
+.group .right .content.empty {
   padding: 0;
 }
 
-.group .right {
+.group div:nth-of-type(2) {
   background-color: hsl(0, 0%, 94%);
 }
 
@@ -126,7 +143,7 @@ a:hover {
   font-size: 90%;
 }
 
-.content h3, 
+.content h3,
 .content h4 {
   font-family: sans-serif;
   font-family: var(--sans-serif);
@@ -143,7 +160,7 @@ a:hover {
   margin-block-end: 0;
 }
 
-.content ul, 
+.content ul,
 .content ol {
   margin: 0;
   padding-inline-start: 1rem;
@@ -164,15 +181,15 @@ mark.selected {
 
 mark[data-annotation-id]::after {
   content: attr(data-annotation-id);
-  content: attr(data-annotation-id)/"";
+  content: attr(data-annotation-id) / "";
   display: inline-block;
   position: relative;
   border-radius: 50%;
   border: 1px solid hsl(0, 0%, 0%);
-  width: .625rem;
-  height: .625rem;
-  font-size: .625rem;
-  line-height: .625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  font-size: 0.625rem;
+  line-height: 0.625rem;
   padding: 1px;
   text-align: center;
   margin-left: 3px;
@@ -180,15 +197,15 @@ mark[data-annotation-id]::after {
   bottom: 2px;
 }
 
-.content > .annotation:not(:first-child), 
-.content .content:not(:first-child), 
+.content > .annotation:not(:first-child),
+.content .content:not(:first-child),
 .content .annotation-group:not(:first-child) {
-  margin-top: .625rem;
+  margin-top: 0.625rem;
 }
 
 .annotation {
   background-color: hsl(0, 0%, 100%);
-  padding: .625rem;
+  padding: 0.625rem;
   border: 1px solid var(--border-color);
 }
 
@@ -196,19 +213,19 @@ mark[data-annotation-id]::after {
   cursor: pointer;
 }
 
-.annotation[role=comment][data-annotation-id]::after, 
-.annotation-group[role=comment][data-annotation-id]::after {
+.annotation[role="comment"][data-annotation-id]::after,
+.annotation-group[role="comment"][data-annotation-id]::after {
   content: attr(data-annotation-id);
-  content: attr(data-annotation-id)/"";
+  content: attr(data-annotation-id) / "";
   font-family: Georgia, "Times New Roman", Times, serif;
   background-color: hsl(0, 0%, 100%);
   display: inline-block;
   position: absolute;
   border-radius: 50%;
   border: 1px solid var(--border-color);
-  width: .875rem;
-  height: .875rem;
-  font-size: .875rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  font-size: 0.875rem;
   line-height: 1;
   padding: 3px;
   text-align: center;
@@ -216,8 +233,8 @@ mark[data-annotation-id]::after {
   top: -8px;
 }
 
-.annotation[role=comment], 
-.annotation-group[role=comment] {
+.annotation[role="comment"],
+.annotation-group[role="comment"] {
   position: relative;
 }
 
@@ -251,7 +268,7 @@ mark[data-annotation-id]::after {
 }
 
 .annotation-group .annotation.thread {
-  margin-left: .625rem;
+  margin-left: 0.625rem;
 }
 
 .annotation-group .annotation.thread-2 {
@@ -290,8 +307,6 @@ mark[data-annotation-id]::after {
   margin-left: 3.25rem;
 }
 
-
-
 /* Responsive */
 @media screen and (min-width: 1801px) {
   .group .left .content {
@@ -306,14 +321,16 @@ mark[data-annotation-id]::after {
 }
 
 @media screen and (min-width: 1001px) and (max-width: 1800px) {
-  .group .left .content, .group .right .content {
+  .group .left .content,
+  .group .right .content {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
 }
 
 @media screen and (min-width: 751px) {
-  .group .left .content, .group .right .content {
+  .group .left .content,
+  .group .right .content {
     max-width: 50rem;
   }
 
@@ -327,7 +344,8 @@ mark[data-annotation-id]::after {
     flex-direction: column;
   }
 
-  .group .left .content, .group .right .content {
+  .group .left .content,
+  .group .right .content {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
@@ -342,13 +360,15 @@ mark[data-annotation-id]::after {
     font-size: 90%;
   }
 
-  .content > .annotation, .annotation-group {
+  .content > .annotation,
+  .annotation-group {
     margin-top: 1.25rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .group .left .content, .group .right .content {
+  .group .left .content,
+  .group .right .content {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
@@ -363,4 +383,3 @@ mark[data-annotation-id]::after {
 .no-js.annotation:hover {
   cursor: auto;
 }
-

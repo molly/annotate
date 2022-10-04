@@ -8,8 +8,8 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: hsl(0, 0%, 0%);
-  font-size: 1.1rem;
-  line-height: 1.5;
+  font-size: 1.15rem;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -72,7 +72,7 @@ a:hover {
 
 .intro,
 .outro {
-  max-width: 50rem;
+  max-width: 47rem;
   padding: 0 1rem;
 }
 
@@ -87,73 +87,16 @@ a:hover {
 .maincontent {
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-/* Trickery to create the white/grey background */
-.maincontent::before {
-  content: "";
-  grid-row: 1;
-  grid-column: 1;
-}
-
-.maincontent::after {
-  content: "";
-  grid-row: 1;
-  grid-column: 2;
-  background-color: hsl(0, 0%, 94%);
-}
-/* END trickery */
-
-.article {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  grid-row: 1;
-  grid-column: 1/3;
-  display: grid;
-  grid-template-columns: inherit;
-}
-
-.group {
-  grid-column: 1/3;
-  display: grid;
-  grid-template-columns: inherit;
-  grid-gap: 1rem;
-}
-
-.group > div:first-of-type {
-  justify-self: flex-end;
 }
 
 .content {
-  max-width: 70ch;
-  padding: 0 1.25rem 1.65rem 1.25rem;
+  max-width: 43rem;
+  margin: 1.65rem auto;
+  padding: 0 1.25rem;
 }
 
 .content p {
   margin-top: 0;
-}
-
-.group .left,
-.group .right {
-  display: flex;
-}
-
-.group .left .content,
-.group .right .content {
-  background-color: inherit;
-  box-shadow: none;
-  padding: 0 1.25rem 1.65rem 1.25rem;
-}
-
-.group .left .content.empty,
-.group .right .content.empty {
-  padding: 0;
-}
-
-.group .right .content {
-  font-size: 90%;
 }
 
 .content h3,
@@ -198,6 +141,15 @@ mark[data-annotation-id]::after {
   margin-left: 3px;
   margin-right: 2px;
   bottom: 2px;
+}
+
+.note {
+  padding: 1.25rem 1.25rem;
+  max-width: 50rem;
+  font-family: sans-serif;
+  font-family: var(--sans-serif);
+  font-size: 90%;
+  background-color: hsl(0, 0%, 94%);
 }
 
 .content > .annotation:not(:first-child),
@@ -310,70 +262,69 @@ mark[data-annotation-id]::after {
   margin-left: 3.25rem;
 }
 
-/* Responsive */
-@media screen and (min-width: 1801px) {
-  .group .left .content {
-    padding-left: 20%;
+/* Bigger displays */
+
+@media screen and (min-width: 31.25rem) {
+  .content,
+  .note {
     padding-right: 2.5rem;
-  }
-
-  .group .right .content {
     padding-left: 2.5rem;
-    padding-right: 20%;
   }
 }
 
-@media screen and (min-width: 1001px) and (max-width: 1800px) {
-  .group .left .content,
-  .group .right .content {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-
-@media screen and (min-width: 751px) {
-  .group .left .content,
-  .group .right .content {
-    max-width: 50rem;
+@media screen and (min-width: 46rem) {
+  .maincontent {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
   }
 
-  .group .left .content {
-    float: right;
-  }
-}
+  /* Trickery to create the white/grey background */
 
-@media screen and (max-width: 750px) {
+  .maincontent::before {
+    content: "";
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .maincontent::after {
+    content: "";
+    grid-row: 1;
+    grid-column: 2;
+    background-color: hsl(0, 0%, 94%);
+  }
+
+  /* END trickery */
+
+  .article {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    grid-row: 1;
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: inherit;
+  }
+
   .group {
-    flex-direction: column;
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: inherit;
   }
 
-  .group .left .content,
-  .group .right .content {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+  .content {
+    margin: 0;
+    padding: 0 1.2rem;
   }
 
-  .group .left .content {
-    padding-top: 1.65rem;
-  }
-
-  .annotation {
-    font-family: sans-serif;
-    font-family: var(--sans-serif);
-    font-size: 90%;
-  }
-
-  .content > .annotation,
-  .annotation-group {
-    margin-top: 1.25rem;
+  .quote {
+    justify-self: flex-end;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .group .left .content,
-  .group .right .content {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+@media screen and (min-width: 62.5rem) {
+  .content,
+  .note {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
   }
 }
 

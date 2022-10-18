@@ -2,6 +2,8 @@
 
 Annotate and publish text on the web! This project was created for ["The (Edited) Latecomer's Guide to Crypto"](https://www.mollywhite.net/annotations/latecomers-guide-to-crypto), but can be used to annotate any text document.
 
+View a live demo at https://molly.github.io/annotate/.
+
 ![](./screenshots/latecomers-desktop.png)
 
 ## How to use

@@ -23,9 +23,9 @@ const makeClickHandler = (isHighlight) => {
       selector = event.target.getAttribute('aria-details');
       targetElement = event.target;
     } else {
-      if (event.target.getAttribute('role') === 'comment') {
-        selector = event.target.id;
-        targetElement = event.target;
+      if (event.currentTarget.getAttribute('role') === 'comment') {
+        selector = event.currentTarget.id;
+        targetElement = event.currentTarget;
       } else {
         // Depending on where they click, they may have targeted a child element
         const annotation = event.target.closest('[role="comment"]');
@@ -82,7 +82,7 @@ const onInitialLoad = () => {
   const highlights = document.querySelectorAll('mark');
   highlights.forEach(highlight => (highlight.addEventListener('click', makeClickHandler(true))));
 
-  const comments = document.querySelectorAll('.annotation');
+  const comments = document.querySelectorAll('.annotation-group');
   comments.forEach(comment => comment.addEventListener('click', makeClickHandler(false)))
   
   document.addEventListener('click', deselectAll);

@@ -13,10 +13,11 @@ body {
   margin: 0;
 }
 
-h2,
-h3,
-h4,
-h5 {
+#css-warning {
+  display: none;
+}
+
+h2, h3, h4, h5 {
   font-family: sans-serif;
   font-family: var(--sans-serif);
   margin: 0;
@@ -99,15 +100,13 @@ a:hover {
   margin-top: 0;
 }
 
-.content h3,
-.content h4 {
+.content h3, .content h4 {
   font-family: sans-serif;
   font-family: var(--sans-serif);
   margin: 0 0 1.25rem 0;
 }
 
-.content ul,
-.content ol {
+.content ul, .content ol {
   margin: 0;
   padding-inline-start: 1rem;
 }
@@ -135,12 +134,12 @@ mark[data-annotation-id]::after {
   width: 0.625rem;
   height: 0.625rem;
   font-size: 0.625rem;
-  line-height: 0.625rem;
+  line-height: 0.5rem;
   padding: 1px;
   text-align: center;
   margin-left: 3px;
   margin-right: 2px;
-  bottom: 2px;
+  bottom: 3px;
 }
 
 .note {
@@ -168,7 +167,6 @@ mark[data-annotation-id]::after {
   cursor: pointer;
 }
 
-.annotation[role="comment"][data-annotation-id]::after,
 .annotation-group[role="comment"][data-annotation-id]::after {
   content: attr(data-annotation-id);
   content: attr(data-annotation-id) / "";
@@ -181,14 +179,13 @@ mark[data-annotation-id]::after {
   width: 0.875rem;
   height: 0.875rem;
   font-size: 0.875rem;
-  line-height: 1;
+  line-height: 0.9;
   padding: 3px;
   text-align: center;
   left: -8px;
   top: -8px;
 }
 
-.annotation[role="comment"],
 .annotation-group[role="comment"] {
   position: relative;
 }
@@ -214,7 +211,7 @@ mark[data-annotation-id]::after {
   margin: 0;
 }
 
-.small {
+.intro small {
   font-size: 80%;
 }
 
@@ -222,7 +219,7 @@ mark[data-annotation-id]::after {
   font-size: 70%;
 }
 
-.annotation-group .annotation.thread {
+.annotation-group .annotation.thread-1 {
   margin-left: 0.625rem;
 }
 
@@ -279,20 +276,17 @@ mark[data-annotation-id]::after {
   }
 
   /* Trickery to create the white/grey background */
-
   .maincontent::before {
     content: "";
     grid-row: 1;
     grid-column: 1;
   }
-
   .maincontent::after {
     content: "";
     grid-row: 1;
     grid-column: 2;
     background-color: hsl(0, 0%, 94%);
   }
-
   /* END trickery */
 
   .article {
@@ -302,6 +296,7 @@ mark[data-annotation-id]::after {
     grid-column: 1/3;
     display: grid;
     grid-template-columns: inherit;
+    gap: 2rem;
   }
 
   .group {

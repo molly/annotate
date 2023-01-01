@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:type" content="profile" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="annotate.js" defer></script>
+
+{% include "templates/head.html" %}
+</head>
+
+<body>
+  <div class="title-block">
+    <h1>{{title}}</h1>{% for byline in frontmatter.bylines %}
+    <div class="byline">{{byline|safe}}</div>{% endfor %}
+  </div>
+  <div class="intro">{% for intro in frontmatter.intros %}
+    <p>{{intro|safe}}</p>{% endfor %}
+  </div>
+  <div id="css-warning" style="font-size:3rem;font-family:sans-serif;font-weight:900;text-shadow:0 0 1rem magenta;color:deeppink;">
+    If you're seeing this, the CSS file is missing.
+  </div>
+  <main class="maincontent">
+    <article class="article">
+
+{% for group in content %}{% include "templates/group.html" %}
+{% endfor %}
+    </article>
+  </main>
+  <footer class="outro">{% for outro in backmatter.outros %}
+    <p>{{outro|safe}}</p>{% endfor %}
+    <div class="fine-print">{% for fine-print in backmatter.fine-prints %}
+      <p>{{fine-print|safe}}</p>{% endfor %}
+    </div>
+  </footer>
+</body>
+
+</html>

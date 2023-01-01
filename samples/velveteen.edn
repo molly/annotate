@@ -1,0 +1,53 @@
+{:title "The Velveteen Rabbit"
+ :authorship "By Margery Williams, <a href=\"https://en.wikisource.org/wiki/The_Velveteen_Rabbit\">originally published</a> in 1922"
+ :content [{:quote [{:text "There was once a velveteen rabbit, and in the beginning he was really splendid."}
+                    {:text "He was fat and bunchy,"
+                     :mark {:id "bunchy"}}
+                    {:text "as a rabbit should be; his coat was spotted brown and white, he had real thread whiskers, and his ears were lined with pink sateen. On Christmas morning, when he sat wedged in the top of the Boy’s stocking, with a sprig of holly between his paws, the effect was charming."}]
+            :notes [{:id "bunchy"
+                     :comments [{:text "A standalone comment. There's only one in this paragraph, so it doesn't have a number."
+                                 :commenter "Molly White"}]}]}
+           {:quote [{:text "There were other things in the stocking, nuts and oranges and a toy engine, and chocolate almonds and a clockwork mouse, but the Rabbit was quite the best of all. For at least two hours the Boy loved him, and then Aunts and Uncles came to dinner, and there was a great rustling of tissue paper and unwrapping of parcels, and in the excitement of looking at all the new presents the Velveteen Rabbit was forgotten."}]}
+           {:quote [{:text "For a long time he lived in the toy cupboard or on the nursery floor, and no one thought very much about him. He was naturally shy, and being only made of velveteen, some of the more expensive toys quite snubbed him. The mechanical toys were very superior, and looked down upon every one else; they were full of modern ideas, and pretended they were real. The model boat, who had lived through two seasons and lost most of his paint, caught the tone from them and never missed an opportunity of referring to his rigging in technical terms. The Rabbit could not claim to be a model of anything, for"}
+                    {:text "he didn’t know that real rabbits existed;"
+                     :mark {:id "real-rabbits"}}
+                    {:text "he thought they were all stuffed with sawdust like himself, and he understood that sawdust was quite out-of-date and should never be mentioned in modern circles. Even Timothy, the jointed wooden lion, who was made by the disabled soldiers, and should have had broader views, put on airs and"}
+                    {:text "pretended he was connected with Government."
+                     :mark {:id "government"}}
+                    {:text "Between them all the poor little Rabbit was made to feel himself very insignificant and commonplace, and the only person who was kind to him at all was the Skin Horse."}]
+            :notes [{:id "bunchy"
+                     :comments [{:text "A comment with indented responses."
+                                 :commenter "Molly White"}
+                                {:text "A reply!"
+                                 :commenter "Another commenter"
+                                 :thread-level 1}
+                                {:text "A retort!"
+                                 :commenter "Molly White"
+                                 :thread-level 2}]}
+                    {:id "government"
+                     :comments [{:text "Another standalone comment. This one has a response, but it isn't indented because it doesn't have the thread class applied."
+                                 :commenter "Molly White"}
+                                {:text "A reply!"
+                                 :commenter "Molly White"}]}]}
+           {:quote [{:text "The Skin Horse had lived longer in the nursery than any of the others. He was so old that his brown coat was bald in patches and showed the seams underneath, and"}
+                    {:text "most of the hairs in his tail had been pulled out to string bead necklaces."
+                     :mark {:id "bead-necklaces"}}
+                    {:text "He was wise, for he had seen a long succession of mechanical toys arrive to boast and swagger, and by-and-by break their mainsprings and pass away, and he knew that they were only toys, and would never turn into anything else. For"}
+                    {:text "nursery magic"
+                     :mark {:id "nursery-magic"}}
+                    {:text "is very strange and wonderful, and only those playthings that are old and wise and experienced like the Skin Horse understand all about it."}]
+            :notes [{:id "bead-necklaces"
+                     :comments [{:text "A standalone comment. This one doesn't have a commenter name identified."}]}
+                    {:id "nursery-magic"
+                     :comments [{:text "Another standalone comment."
+                                 :commenter "Molly White"}]}]}]
+ :frontmatter {:bylines ["Annotations by Molly White."]
+               :intros ["Introductory text goes here."
+                        "<small>Use the <code>small</code> <s>class</s> <strong>tag</strong> to add explanatory notes.</small>"]}
+ :backmatter {:outros ["An outro can go here, if you want."
+                       "There are some small changes:"
+                       "As noted at the top, <code>small</code> in the frontmatter is used as a tag instead of a class."
+                       "You may notice the highlighted text includes punctuation while the original doesn't. This could be changed either way, it's a bit easier to normalize whitespace between lines in a &lt;p&gt;."
+                       "Every comment is contained in an <code>annotation-group</code>. For production use it's just easier to have a normalized spec."]
+              :fine-prints ["This is a good place to put a copyright disclosure, especially if you're republishing a full copyrighted work by another person. I used this one in my <a href=\"https://www.mollywhite.net/annotations/latecomers-guide-to-crypto\">Edited Latecomer's Guide to Crypto</a>:"
+                            "Copyright to the New York Times article belongs to the Times, and the article can be read in its original form in full at <a href=\"https://www.nytimes.com/interactive/2022/03/18/technology/cryptocurrency-crypto-guide.html\">nytimes.com</a>. It is republished here for the purposes of critical commentary. Copyright of the annotations belongs to their respective authors, as noted inline. Those without authors noted inline are combined commentaries from several annotators."]}}

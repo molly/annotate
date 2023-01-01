@@ -1,0 +1,10 @@
+{:paths ["."]
+ :deps {com.rpl/specter {:mvn/version "1.1.4"}}
+ :tasks {velveteen {:doc "Generate the sample document from the original repo."
+                    :requires ([scripts.create])
+                    :task (scripts.create/write-file!
+                           "samples/velveteen.edn"
+                           "target/velveteen.html")}
+         write {:doc "Output a document given an infile and outfile."
+                :requires ([scripts.create])
+                :task scripts.create/write-file!}}}

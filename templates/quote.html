@@ -1,0 +1,5 @@
+        <div class="content quote">
+          <p>{% for part in group.quote %}
+            {% if part.mark %}<mark{% if forloop.length > 1 %}{% if part.mark.dai %} data-annotation-id="{{part.mark.dai}}"{% endif %}{% endif %} aria-details="{{part.mark.id}}">{% endif %}{{part.text|safe}}{% if part.mark %}</mark>{% endif %}{% endfor %}
+          </p>
+        </div>

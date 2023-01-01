@@ -1,0 +1,5 @@
+          <div class="annotation-group" role="comment"{% if not forloop.length = 1 %} data-annotation-id="{{forloop.counter}}"{% endif %} id="{{note.id}}">{% for comment in note.comments %}
+            <div class="annotation{% if 0 < comment.thread-level|default:0 %} thread-{{comment.thread-level}}{% endif %}" role="comment">
+              {% if comment.commenter %}<div class="commenter">{{comment.commenter}}</div>{% endif %}{{comment.text|safe}}
+            </div>{% endfor %}
+          </div>

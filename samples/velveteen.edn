@@ -15,7 +15,7 @@
                     {:text "pretended he was connected with Government."
                      :mark {:id "government"}}
                     {:text "Between them all the poor little Rabbit was made to feel himself very insignificant and commonplace, and the only person who was kind to him at all was the Skin Horse."}]
-            :notes [{:id "bunchy"
+            :notes [{:id "real-rabbits"
                      :comments [{:text "A comment with indented responses."
                                  :commenter "Molly White"}
                                 {:text "A reply!"
@@ -46,8 +46,9 @@
                         "<small>Use the <code>small</code> <s>class</s> <strong>tag</strong> to add explanatory notes.</small>"]}
  :backmatter {:outros ["An outro can go here, if you want."
                        "There are some small changes:"
-                       "As noted at the top, <code>small</code> in the frontmatter is used as a tag instead of a class."
-                       "You may notice the highlighted text includes punctuation while the original doesn't. This could be changed either way, it's a bit easier to normalize whitespace between lines in a &lt;p&gt;."
-                       "Every comment is contained in an <code>annotation-group</code>. For production use it's just easier to have a normalized spec."]
+                       "<ul>
+                        <li>As noted at the top, <code>small</code> in the frontmatter is used as a tag instead of a class.</li>
+                        <li>You may notice the highlighted text includes punctuation while the original doesn't. This could be changed either way, it's a bit easier to normalize whitespace between lines in a &lt;p&gt;.</li>
+                        <li>Every comment is contained in an <code>annotation-group</code>. For production use it's just easier to have a normalized spec.</li></ul>"]
               :fine-prints ["This is a good place to put a copyright disclosure, especially if you're republishing a full copyrighted work by another person. I used this one in my <a href=\"https://www.mollywhite.net/annotations/latecomers-guide-to-crypto\">Edited Latecomer's Guide to Crypto</a>:"
                             "Copyright to the New York Times article belongs to the Times, and the article can be read in its original form in full at <a href=\"https://www.nytimes.com/interactive/2022/03/18/technology/cryptocurrency-crypto-guide.html\">nytimes.com</a>. It is republished here for the purposes of critical commentary. Copyright of the annotations belongs to their respective authors, as noted inline. Those without authors noted inline are combined commentaries from several annotators."]}}

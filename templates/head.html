@@ -8,7 +8,7 @@
   <meta property="og:title" content="{{title}}" />
   <meta property="og:description" content="{{head.description}}" />
   <meta name="description" content="{{head.description}}" />
-  <meta name="author" content="{{authorship}}" />
+  <meta name="author" content="{{authorship|remove-tags:a:p:div:em:i:strong:b}}" />
   <meta property="og:image" content="{{head.meta.image}}" />
   <meta property="og:image:alt" content="{{head.meta.image-alt}}" />
   <meta property="og:image:width" content="{{head.meta.image-width}}" />
@@ -16,7 +16,7 @@
   <meta property="og:url" content="{{head.meta.url}}" />
   <meta name="twitter:card" content="{{head.meta.twitter-card}}" />
   <meta name="twitter:creator" content="{{head.meta.twitter-creator}}" />
-  <meta name="twitter:title" content="{{title}}" />
+  <meta name="twitter:title" content="{{title|remove-tags:a:p:div:em:i:strong:b}}" />
   <meta name="twitter:description" content="{{head.description}}" />
   <meta name="twitter:image" content="{{head.meta.image}}" />
   <meta name="twitter:image:alt" content="{{head.meta.image-alt}}" />

@@ -35,7 +35,7 @@ What should the edn file look like?
                                  :thread-level 1}]}]}]}
 ```
 
-Will look like...
+Will become...
 
 ![](repo-assets/demo-edn.png)
 

@@ -64,7 +64,7 @@ const makeClickHandler = (isHighlight) => {
 // Remove .selected from all elements.
 const deselectAll = () => {
   const selectedComments = document.querySelectorAll('.selected');
-  selectedComments.forEach(selectedComment => selectedComments[i].classList.remove('selected')) 
+  selectedComments.forEach(selectedComment => selectedComment.classList.remove('selected')) 
 }
 
 /**
